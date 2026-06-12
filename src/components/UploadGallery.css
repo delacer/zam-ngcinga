@@ -1,0 +1,337 @@
+/* Media Dashboard Interface Tokens */
+:root {
+  --brand-orange: #f26419;
+  --steel-slate: #2f4858;
+  --dark-charcoal: #0f172a;
+  --bg-deep: #0b0f19;
+  --white: #ffffff;
+  
+  /* Glassmorphism Specs */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-blur: blur(12px);
+  --smooth-curve: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Wrapper Blueprint */
+.gallery-admin-container {
+  background-color: var(--bg-deep);
+  min-height: 100vh;
+  padding: 3rem 2rem;
+  font-family: inherit;
+  color: var(--white);
+}
+
+/* Header Area Configuration */
+.gallery-header-pane {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 2.5rem;
+  margin-bottom: 4rem;
+}
+.title-block h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+.title-block p {
+  color: #94a3b8;
+  font-size: 1rem;
+  max-width: 500px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Drag Drop Zone Styling */
+.upload-dropzone-box {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem 2.5rem;
+  transition: all 0.3s var(--smooth-curve);
+  min-width: 320px;
+  text-align: center;
+}
+.upload-dropzone-box:hover {
+  border-color: var(--brand-orange);
+  background: rgba(242, 100, 25, 0.03);
+}
+.upload-dropzone-box input[type="file"] {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.dropzone-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+.icon-cloud-drop {
+  font-size: 2.2rem;
+  color: #64748b;
+  transition: color 0.3s;
+}
+.upload-dropzone-box:hover .icon-cloud-drop {
+  color: var(--brand-orange);
+}
+.orange-highlight {
+  color: var(--brand-orange);
+  font-weight: 700;
+}
+
+/* Spinner Animation Rules */
+.icon-uploading-spin {
+  font-size: 2rem;
+  color: var(--brand-orange);
+  animation: assetSpin 1s linear infinite;
+}
+@keyframes assetSpin {
+  100% { transform: rotate(360deg); }
+}
+.upload-dropzone-box.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Fluid Asset Grid Grid */
+.gallery-display-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Glass Display Cards */
+.gallery-glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s var(--smooth-curve);
+}
+.gallery-glass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Consistent Crop Box Aspect Ratio Box */
+.media-viewport-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 65%; /* 16:10 Premium Cinematic Bounds Window */
+  background: #090c15;
+  overflow: hidden;
+}
+.media-viewport-wrapper img, 
+.media-viewport-wrapper video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border: none;
+}
+.media-type-tag {
+  position: absolute;
+  top: 0.75rem; left: 0.75rem;
+  background: rgba(11, 15, 25, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--brand-orange);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+}
+
+/* Card Details Footer */
+.media-meta-footer {
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(11, 15, 25, 0.4);
+}
+.file-name-label {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+.delete-item-action-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.4rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  display: inline-flex;
+  transition: all 0.2s ease;
+}
+.delete-item-action-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Loading Frames Skeletons */
+.gallery-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+.skeleton-card {
+  height: 240px;
+  background: linear-gradient(90deg, #131926 25%, #1d263b 50%, #131926 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.6s infinite;
+  border-radius: 14px;
+}
+@keyframes skeletonPulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Empty Alert Notice Frame */
+.empty-state-notice {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: var(--glass-bg);
+  border: 1px dashed var(--glass-border);
+  border-radius: 16px;
+  color: #64748b;
+}
+
+/* Media Breakers Layout Engine */
+@media (max-width: 850px) {
+  .gallery-header-pane { flex-direction: column; align-items: stretch; gap: 1.5rem; }
+  .upload-dropzone-box { min-width: auto; }
+}
+/* 1. Make sure the container allows overlay elements */
+.media-viewport-wrapper {
+  position: relative; 
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* 2. Position the trash button perfectly in the bottom-right corner */
+.card-overlay-delete {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(255, 68, 68, 0.25); /* Subtle transparent red glassmorphic look */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 10px;
+  border-radius: 50%; /* Makes it a beautiful circular button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 10; /* Keeps it layered above the images and videos */
+}
+
+/* 3. Give it a nice glow-up animation when hovered over */
+.card-overlay-delete:hover {
+  background: rgba(255, 51, 51, 0.9); /* Bright red on hover */
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+}
+/* ==========================================================================
+   SMARTPHONE RESPONSIVE LAYER (Max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* 1. Container & Global Layout Reset */
+  .gallery-admin-container {
+    padding: 1.5rem 1rem !important; /* Reduces harsh padding on small screens */
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Header & Typography Sizing */
+  .gallery-header-pane {
+    margin-bottom: 2rem !important;
+    padding-bottom: 1.5rem !important;
+    gap: 1.25rem !important;
+  }
+  
+  .title-block h2 {
+    font-size: 1.6rem !important; /* Keeps the title clear but prevents wrapping awkwardness */
+    letter-spacing: -0.3px;
+  }
+  
+  .title-block p {
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+  }
+
+  /* 3. Drag & Drop Upload Zone Core Fix */
+  .upload-dropzone-box {
+    min-width: 0 !important; /* Removes the 320px minimum boundary that pushes off mobile edges */
+    width: 100% !important;
+    padding: 1.25rem 1rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  .dropzone-label {
+    font-size: 0.85rem !important;
+  }
+  
+  .icon-cloud-drop {
+    font-size: 1.8rem !important; /* Scales down icon slightly for tight display aspect ratios */
+  }
+
+  /* 4. Fluid Asset Grid Adjustment */
+  .gallery-display-grid,
+  .gallery-skeleton-grid {
+    grid-template-columns: 1fr !important; /* Forces single-column stacking for comfortable scrolling target */
+    gap: 1.5rem !important; /* Drops the 2.5rem desktop gap so elements don't space out wildly */
+    width: 100% !important;
+  }
+
+  /* 5. Glass Display Cards & Media Viewports */
+  .gallery-glass-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .media-viewport-wrapper {
+    padding-top: 60% !important; /* Changes the cinematic display ratio slightly for better mobile viewing */
+  }
+
+  /* 6. Meta Footer Realignment */
+  .media-meta-footer {
+    padding: 1rem !important;
+  }
+  
+  .file-name-label {
+    font-size: 0.8rem !important; /* Smaller, truncated baseline text layout */
+    max-width: 180px; /* Enforces strict clipping constraints on ultra-long phone text lines */
+  }
+
+  /* 7. Bottom-Right Absolute Corner Delete Button */
+  .card-overlay-delete {
+    bottom: 10px !important;
+    right: 10px !important;
+    padding: 8px !important; /* Keeps touch targets highly active but matches mobile viewport margins */
+  }
+}
