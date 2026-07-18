@@ -3,7 +3,7 @@ import React from "react";
 // 1. Import Link to enable immediate internal routing transitions
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import { FaPhone, FaEnvelope, FaWhatsapp, FaFacebook, FaTiktok, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaWhatsapp, FaFacebook, FaTiktok, FaMapMarkerAlt, FaClock, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -34,7 +34,7 @@ const Footer = () => {
           
           <div className="contact-item alignment-fix">
             <FaMapMarkerAlt className="footer-icon structural-marker" />
-            <span className="address-text">23 River Crescent, Stratford Green, Eerste River</span>
+            <span className="address-text">23 Rier Crescent, Stratford Green, Eerste River</span>
           </div>
         </div>
 
@@ -76,6 +76,8 @@ const Footer = () => {
           <div className="social-media-icons">
             <a href="https://www.facebook.com/share/1M2czm5XrF/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
             <a href="https://www.tiktok.com/@ngcinga.zam?_r=1&_t=ZS-96gB0kr75PE" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok /></a>
+            <a href="https://www.youtube.com/@ngcingazamptyltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaYoutube /></a>
+            <a href="https://www.instagram.com/ngcingazamptyltd" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaInstagram /></a>
             <a href="mailto:zamngcinga@gmail.com" aria-label="Email"><FaEnvelope /></a>
           </div>
         </div>

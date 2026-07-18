@@ -112,7 +112,7 @@ ${formData.message}
                 <FaMapMarkerAlt className="icon-orange" />
                 <div>
                   <h4>Our Base</h4>
-                  <p className="sidebar-text">23 River Crescent, Stratford Green, Eerste River, Cape Town</p>
+                  <p className="sidebar-text">23 Rier Crescent, Stratford Green, Eerste River, Cape Town</p>
                 </div>
               </div>
 
